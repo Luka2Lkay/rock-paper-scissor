@@ -7,8 +7,90 @@
 
 <body>
 <h1>Hello!</h1>
+
+<p id = "demo"></p>
+
 <script>
 
+    let playerScore = 0;
+    let computerScore = 0;
+    let roundResult = 0;
+    let roundNumber = 0;
+    //computer's play//
+function computerPlay(){
+    let compChoice = Math.floor(Math.random() *3)+1;
+
+    switch(compChoice) {
+        case 1 :
+            choice = "computer plays Rock!";
+            break;
+        case 2 :
+            choice = "computer plays Paper!";
+            break;
+        case 3 :
+            choice = "computer plays Scissor!";
+        
+    }
+
+console.log(choice)
+    
+}
+//player choice//
+function playerChoice(){
+    playerSelection = "Paper";
+    computerSelection = computerPlay()
+    singleRound(playerSelection,computerSelection);
+}
+    
+
+function singleRound(playerSelection,computerSelection){
+    roundNumber++;   
+    // for draw
+    if (playerSelection === computerSelection){
+        roundResult = "Draw!";
+        console.log(roundResult);
+    }
+
+    //if player plays Rock!//
+    if (playerSelection === "Rock"){
+            if (computerSelection === 2){
+                computerScore++;
+                roundResult = "You lose! Paper covers rock";
+                console.log(roundResult);
+            }else if(computerSelection == 3){
+                playerScore++;
+                roundResult = "You win! Rock break scissor!";
+                console.log(roundResult);
+            }
+    } 
+    //if player plays paper//
+    if (playerSelection === "Paper"){
+        if (computerSelection === 1){
+            playerScore++;
+            roundResult = "You win! Paper covers rock";
+            console.log(roundResult);
+        } else if(computerSelection === 3){
+            computerScore++;
+            roundResult = "You lose! Scissor cuts paper";
+            console.log(roundResult);
+        }
+    }
+    //if player plays scissor//
+    if (playerSelection === "Scissor"){
+        if (computerSelection === 1){
+            computerScore++;
+            roundResult = "You lose! Rock breaks scissors";
+            console.log(roundResult);
+        } else if(computerSelection === 2){
+            playerScore++;
+            roundResult = "You win! scissor cuts rock";
+            console.log(roundResult);
+        }
+    }
+
+
+}
+  
 </script>
 
 </body>
