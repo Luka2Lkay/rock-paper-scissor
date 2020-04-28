@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<h1>Hello!</h1>
+<h1>Hello World!</h1>
 
 <p id = "demo"></p>
 
@@ -14,7 +14,6 @@
 
     let playerScore = 0;
     let computerScore = 0;
-    let roundResult = 0;
     let roundNumber = 0;
     //computer's play//
 function computerPlay(){
@@ -22,75 +21,79 @@ function computerPlay(){
 
     switch(compChoice) {
         case 1 :
-            choice = "computer plays Rock!";
+            choice = "Rock";
             break;
         case 2 :
-            choice = "computer plays Paper!";
+            choice = "Paper";
             break;
         case 3 :
-            choice = "computer plays Scissor!";
+            choice = "Scissor";
         
     }
 
-console.log(choice)
-    
+return choice;
 }
-//player choice//
-function playerChoice(){
-    playerSelection = "Paper";
-    computerSelection = computerPlay()
-    singleRound(playerSelection,computerSelection);
-}
-    
 
-function singleRound(playerSelection,computerSelection){
+
+    const computerSelection = computerPlay();
+   
+
+function singleRound(playerSelection, computerSelection) {
     roundNumber++;   
+
+    
     // for draw
     if (playerSelection === computerSelection){
-        roundResult = "Draw!";
-        console.log(roundResult);
+        return "Draw!";
+    
     }
+
 
     //if player plays Rock!//
     if (playerSelection === "Rock"){
-            if (computerSelection === 2){
+            if (computerSelection === "Paper"){
                 computerScore++;
-                roundResult = "You lose! Paper covers rock";
-                console.log(roundResult);
-            }else if(computerSelection == 3){
+                return "You lose! Paper covers rock";
+                
+
+            }else if(computerSelection == "Scissor"){
                 playerScore++;
-                roundResult = "You win! Rock break scissor!";
-                console.log(roundResult);
+                return "You win! Rock break scissor!";
+                
             }
     } 
     //if player plays paper//
     if (playerSelection === "Paper"){
-        if (computerSelection === 1){
+        if (computerSelection === "Rock"){
             playerScore++;
-            roundResult = "You win! Paper covers rock";
-            console.log(roundResult);
-        } else if(computerSelection === 3){
+            return "You win! Paper covers rock";
+            
+
+        } else if(computerSelection === "Scissor"){
             computerScore++;
-            roundResult = "You lose! Scissor cuts paper";
-            console.log(roundResult);
+            return "You lose! Scissor cuts paper";
+            
         }
     }
     //if player plays scissor//
     if (playerSelection === "Scissor"){
-        if (computerSelection === 1){
+        if (computerSelection === "Rock"){
             computerScore++;
-            roundResult = "You lose! Rock breaks scissors";
-            console.log(roundResult);
-        } else if(computerSelection === 2){
+            return "You lose! Rock breaks scissors";
+            
+
+        } else if(computerSelection === "Paper"){
             playerScore++;
-            roundResult = "You win! scissor cuts rock";
-            console.log(roundResult);
+            return "You win! scissor cuts Paper";
+            
         }
     }
 
 
 }
-  
+
+
+
 </script>
 
 </body>
