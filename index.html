@@ -21,26 +21,23 @@ function computerPlay(){
 
     switch(compChoice) {
         case 1 :
-            choice = "Rock";
+            choice = "rock";
             break;
         case 2 :
-            choice = "Paper";
+            choice = "paper";
             break;
         case 3 :
-            choice = "Scissor";
+            choice = "scissor";
         
     }
 
 return choice;
 }
 
+function singleRound() {
 
+    const playerSelection = prompt("What's your play?").toLocaleLowerCase();
     const computerSelection = computerPlay();
-   
-
-function singleRound(playerSelection, computerSelection) {
-    roundNumber++;   
-
     
     // for draw
     if (playerSelection === computerSelection){
@@ -50,39 +47,39 @@ function singleRound(playerSelection, computerSelection) {
 
 
     //if player plays Rock!//
-    if (playerSelection === "Rock"){
-            if (computerSelection === "Paper"){
+    if (playerSelection === "rock"){
+            if (computerSelection === "paper"){
                 computerScore++;
                 return "You lose! Paper covers rock";
                 
 
-            }else if(computerSelection == "Scissor"){
+            }else if(computerSelection == "scissor"){
                 playerScore++;
                 return "You win! Rock break scissor!";
                 
             }
     } 
     //if player plays paper//
-    if (playerSelection === "Paper"){
-        if (computerSelection === "Rock"){
+    if (playerSelection === "paper"){
+        if (computerSelection === "rock"){
             playerScore++;
             return "You win! Paper covers rock";
             
 
-        } else if(computerSelection === "Scissor"){
+        } else if(computerSelection === "scissor"){
             computerScore++;
             return "You lose! Scissor cuts paper";
             
         }
     }
     //if player plays scissor//
-    if (playerSelection === "Scissor"){
-        if (computerSelection === "Rock"){
+    if (playerSelection === "scissor"){
+        if (computerSelection === "rock"){
             computerScore++;
             return "You lose! Rock breaks scissors";
             
 
-        } else if(computerSelection === "Paper"){
+        } else if(computerSelection === "paper"){
             playerScore++;
             return "You win! scissor cuts Paper";
             
